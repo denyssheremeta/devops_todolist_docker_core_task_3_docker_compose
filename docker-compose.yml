@@ -4,7 +4,6 @@ networks:
     driver: bridge
 services:
   mysql:
-    image: my-sql:1.2
     build:
       context: .
       dockerfile: Dockerfile.mysql
@@ -21,10 +20,10 @@ services:
     networks:
       - db-data-net
   todoapp:
-    image: todoapp:1.2
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: todoapp
     ports:
       - '8080:8080'
     networks:
